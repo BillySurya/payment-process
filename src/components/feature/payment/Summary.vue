@@ -1,7 +1,7 @@
 <template>
   <div class="summary">
     <div class="summary-header">
-      <h2 class="summary-header__heading c-orange">Summary</h2>
+      <h2 class="summary-header__heading c-primary-orange">Summary</h2>
 
       <span class="summary-header__text">
         {{ total_purchased_item }} items purchased
@@ -10,7 +10,7 @@
 
       <div v-if="duration && shipment">
         <h3 class="summary-header__heading">Delivery Estimation</h3>
-        <h3 class="summary-header__heading c-green">
+        <h3 class="summary-header__heading c-primary-green">
           {{ duration }} by {{ shipment }}
         </h3>
         <hr />
@@ -18,7 +18,7 @@
 
       <div v-if="paymentMethod">
         <h3 class="summary-header__heading">Payment Method</h3>
-        <h3 class="summary-header__heading c-green">
+        <h3 class="summary-header__heading c-primary-green">
           {{ payment_method }}
         </h3>
       </div>
@@ -41,11 +41,16 @@
           </h4>
         </div>
         <div v-if="totalCost"></div>
-        <h2 class="summary-footer__heading c-orange">
+        <h2 class="summary-footer__heading c-primary-orange">
           Total <b>{{ calculateTotal }}</b>
         </h2>
       </div>
-      <button class="summary-header__button btn-orange">{{ step_text }}</button>
+      <button
+        class="summary-header__button btn-primary-orange"
+        @click="nextStep"
+      >
+        {{ step_text[step - 1].text }}
+      </button>
     </div>
   </div>
 </template>
@@ -57,9 +62,9 @@ export default {
       type: Object,
       default: () => {}
     },
-    stepText: {
-      type: String,
-      default: ""
+    currentStep: {
+      type: Number,
+      default: 1
     },
     duration: {
       type: String,
@@ -92,6 +97,7 @@ export default {
   },
   data() {
     return {
+      step: 1,
       deliveryData: {
         as_dropshipper: false
       },
@@ -101,7 +107,20 @@ export default {
       cost_of_goods: 80000,
       shipment_cost: 90000,
       //   total_cost: 10000,
-      step_text: "Continue To Payment"
+      step_text: [
+        {
+          order: 1,
+          text: "Continue To Payment"
+        },
+        {
+          order: 2,
+          text: "Pay with E-Wallet"
+        },
+        {
+          order: 3,
+          text: "Finish"
+        }
+      ]
     };
   },
   computed: {
@@ -118,6 +137,16 @@ export default {
   watch: {
     delivery(data) {
       this.deliveryData = data;
+    },
+    currentStep(data) {
+      this.step = data;
+    }
+  },
+  methods: {
+    nextStep() {
+      this.step += 1;
+      this.$emit("step", this.step);
+      localStorage.step = this.step;
     }
   }
 };

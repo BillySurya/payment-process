@@ -1,0 +1,28 @@
+
+light-orange = #fffae6;
+medium-orange = #ffe4b8;
+primary-orange = #ff8a00;
+green = #30de8b;
+light-grey = #ced4da;
+
+colors = {
+  light-orange : #fffae6,
+  medium-orange : #ffe4b8,
+  primary-orange : #ff8a00,
+  primary-green : #30de8b,
+  light-grey : #ced4da
+}
+
+for name, color in colors
+  .c-{name}
+    color : color
+  
+  .btn-{name}
+    border: none
+    width: 100%
+    padding: 1rem
+    color : white
+    background: color
+    &:hover
+      cursor: pointer
+      filter: contrast(90%)

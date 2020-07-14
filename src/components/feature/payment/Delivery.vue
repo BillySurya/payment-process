@@ -1,20 +1,20 @@
 <template>
-  <div class="payment-body">
-    <div class="payment-body-title flex__row--space-between">
-      <h1 class="payment-body-title__text">
+  <div class="delivery-body">
+    <div class="delivery-body-title flex__row--space-between">
+      <h1 class="delivery-body-title__text">
         Delivery Details
       </h1>
       <div>
         <input
           type="checkbox"
-          class="payment-body-title__checkbox--center"
+          class="delivery-body-title__checkbox--center"
           v-model="delivery.as_dropshipper"
         />
         Send As Dropshipper
       </div>
     </div>
 
-    <div class="payment-body-form ">
+    <div class="delivery-body-form ">
       <div class="grid-2">
         <div class="field">
           <input
@@ -83,7 +83,8 @@ export default {
         dripshipper_name: null,
         phone_number: null,
         dropshipper_phone_number: null,
-        delivery_address: null
+        delivery_address: null,
+        button_text: "Continue To Payment"
       }
     };
   },
@@ -91,6 +92,7 @@ export default {
     if (localStorage.delivery) {
       this.delivery = JSON.parse(localStorage.delivery);
     }
+    this.$emit("delivery", this.delivery);
   },
   methods: {},
   watch: {
