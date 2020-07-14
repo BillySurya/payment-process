@@ -1,18 +1,214 @@
 @import '/path/to/reset-css/reset.css';
 
+light-orange = #fffae6;
+medium-orange = #ffe4b8;
+orange = #ff8a00;
+green = #30de8b;
+light-grey = #ced4da;
+
+colors = {
+  light-orange : #fffae6,
+  medium-orange : #ffe4b8,
+  orange : #ff8a00,
+  green : #30de8b,
+  light-grey : #ced4da
+}
+
+for name, color in colors
+  .c-{name}
+    color : color
+  
+  .btn-{name}
+    border: none
+    width: 100%
+    padding: 1rem
+    color : white
+    background: color
+    &:hover
+      cursor: pointer
+      filter: contrast(90%)
+
 border-radius()
     -webkit-border-radius: arguments
     -moz-border-radius: arguments
     border-radius: arguments
 
+box-shadows()
+    box-shadow: arguments
+	  -webkit-box-shadow: arguments 
+	  -moz-box-shadow: arguments 
+
+flex(align, spaces)
+    display: flex
+    flex-direction: align
+    justify-content: spaces
+    align-items: center
+
+grid(templates, composistion)
+    display: grid
+    grid-template-columns: repeat(templates, composistion)
+
+for num in 1..100
+  .p-{num}
+    padding: num px;
+  .p-t-{num}
+    padding-top: num px;
+  .p-b-{num}
+    padding-bottom: num px;
+  .p-l-{num}
+    padding-left: num px;
+  .p-r-{num}
+    padding-right: num px;
+
+// -------------------------------------------------------------------------------//
+//                                   HTML
+// -------------------------------------------------------------------------------//
+
 body
     font: 12px Helvetica, Arial, sans-serif
-    // background: #fffae6
-    background: grey
+    background: light-orange
+    height: 100%
 
 .container
-    padding: 20px
-    margin: 50px 30px
+    box-shadows(-3px 5px 22px rgba(#ff8a00, 0.2))
+    border-radius(10px)
+    padding: 25px
+    margin: 55px auto
     background: white
-    border-radius(5px)
-    height: 100vh
+    height: 75vh
+    max-width: 70vw
+  
+.flex__row--space-between
+    flex(row, space-between)
+
+.payment-process-step
+    width: 100%
+    display: block
+    position: absolute
+    left 0;
+    font-size: 12px
+    font-weight: 700
+    color: orange
+    top: 15px;
+    ul
+      flex(row, space-evenly)
+      border-radius(2rem)
+      margin: auto
+      width: 450px;
+      line-height: 70px
+      background: light-orange
+      padding: 0
+      list-style :none
+      li, span.round
+        display: flex
+        align-items: center
+        justify-content: center
+        color: orange
+
+.round
+    border-radius:50%;
+    width:25px;
+    height:25px;
+    display:inline-block;
+    border:none;
+    background: medium-orange;
+    margin-right:10px;   
+
+.active, 
+.btn-orange
+    color: white !important
+    background: orange !important
+
+//TITLE
+// .title
+
+// .title__text
+
+// .title__checkbox--center
+
+
+//Grid
+.grid-2
+    grid(2, 1fr)
+    grid-gap: 0px 25px
+
+.grid-2__custom
+    display: grid;
+    grid-template-columns: 1.35fr 0.65fr;
+    grid-template-rows: 1fr;
+    gap: 15px;
+    grid-template-areas: ". .";
+    height: 90%;
+
+.summary
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+
+
+    margin-left: 20px;
+    border-left: 1px solid orange;
+    padding: 0 20px;
+
+.summary-footer__heading
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+
+
+//INPUT
+.field 
+  display: flex;
+  flex-flow: column-reverse;
+
+input 
+  transition: all 0.2s;
+  touch-action: manipulation;
+  padding: 10px
+  margin: 10px 0
+
+textarea
+  resize: none
+  padding: 10px
+
+// .delivery-form__input
+//   border: 1px solid light-grey;
+//   font-size: 1.5em;
+//   font-family: inherit;
+//   -webkit-appearance: none;
+//   border-radius: 0;
+//   position: relative;
+//   padding: 0.875rem 1rem 0.5rem 0.875rem;
+//   cursor: text;
+//   &:focus
+//     outline: none
+
+// input:focus 
+//   outline: 0;
+//   border-bottom: 1px solid #666;
+
+
+// input:placeholder-shown + label 
+//   cursor: text;
+//   // max-width: 66.66%;
+//   white-space: nowrap;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   transform-origin: left bottom;
+//   transform: translate(0.5rem, 2rem) scale(1.5);
+
+// ::-webkit-input-placeholder 
+//   opacity: 0;
+//   transition: inherit;
+
+// input:focus::-webkit-input-placeholder 
+//   opacity: 1;
+
+// input:not(:placeholder-shown) + label,
+// input:focus + label 
+//   transform: translate(0.875rem , 1rem) scale(1);
+//   cursor: pointer;
+//   color: green
+
+// input:not(:placeholder-shown)
+//   border: 1px solid green
