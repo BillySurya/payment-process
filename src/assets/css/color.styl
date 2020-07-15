@@ -2,7 +2,9 @@
 light-orange = #fffae6;
 medium-orange = #ffe4b8;
 primary-orange = #ff8a00;
-green = #30de8b;
+dark-orange = #ff7f0e;
+primary-green = #30de8b;
+light-green = #e9fcf2;
 light-grey = #ced4da;
 
 colors = {
@@ -10,8 +12,59 @@ colors = {
   medium-orange : #ffe4b8,
   primary-orange : #ff8a00,
   primary-green : #30de8b,
+  light-green : #e9fcf2,
   light-grey : #ced4da
 }
+
+title()
+    color: primary-orange
+    font-size: 23pt
+    margin: 20px 0 15px 0;
+
+border-radius()
+    -webkit-border-radius: arguments
+    -moz-border-radius: arguments
+    border-radius: arguments
+
+box-shadows()
+    box-shadow: arguments
+	  -webkit-box-shadow: arguments 
+	  -moz-box-shadow: arguments 
+
+flex(align, spaces=none)
+    display: flex
+    flex-direction: align
+    justify-content: spaces
+    align-items: center
+
+grid(templates, composistion)
+    display: grid
+    grid-template-columns: repeat(templates, composistion)
+
+cursors(style, borderColor=none, bgColor=none)
+    &:hover
+        cursor: style
+        background: bgColor
+        border-color: borderColor
+
+box-border-color(borderColor=none, bgColor=none){
+  background: bgColor
+  border-color: borderColor
+}
+      
+
+// FOR LOOP
+for num in 1..100
+  .p-{num}
+    padding: num px;
+  .p-t-{num}
+    padding-top: num px;
+  .p-b-{num}
+    padding-bottom: num px;
+  .p-l-{num}
+    padding-left: num px;
+  .p-r-{num}
+    padding-right: num px;
 
 for name, color in colors
   .c-{name}
@@ -24,5 +77,7 @@ for name, color in colors
     color : white
     background: color
     &:hover
+      filter: grayscale(50%)
       cursor: pointer
-      filter: contrast(90%)
+
+  

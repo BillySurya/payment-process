@@ -3,3 +3,52 @@
 .shipment__title--orange,
 .payment__title--orange
     color: primary-orange
+
+.shipment-methods__list,
+.payment-methods__list
+    padding: 0
+    list-style : none
+    display: inline-flex
+    flex-wrap: wrap
+    flex-direction: row
+    justify-content: flex-start
+    text-align: left
+    cursors(pointer)   
+
+.shipment-methods__list-child,
+.payment-methods__list-child
+    display: flex
+    flex-direction: column 
+    justify-content: center
+    border-radius: 5px
+    margin: 5px
+    padding: 15px
+    width: 140px;
+    height 25px
+    border: 2px solid black
+    cursors(pointer, primary-green, light-green)
+
+.payment-methods__list-child-text
+    padding-top: 2px
+
+.active-list 
+    box-border-color(primary-green, light-green)
+    &:after 
+        content: '✔'
+        color: primary-green
+        margin-right: 5px
+        position: absolute
+        width: inherit
+        display: flex
+        justify-content: flex-end
+
+.error 
+    box-border-color(primary-orange, light-orange)
+    &:after 
+        content: '✕'
+        color: primary-orange
+        margin-right: 5px
+        position: absolute
+        width: inherit
+        display: flex
+        justify-content: flex-end

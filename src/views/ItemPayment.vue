@@ -24,15 +24,19 @@
     </div>
 
     <div class="grid-2__custom p-t-20">
-      <section v-if="step_action == 1">
+      <section v-if="step_action === 1">
         <Delivery @delivery="getDelivery" />
       </section>
-      <section v-if="step_action == 2">
-        <Payment @payment="getDelivery" />
+      <section v-if="step_action === 2">
+        <Payment @payment="getPayment" @shipment="getShipment" />
       </section>
-      <section v-if="step_action == 3"></section>
+      <section v-if="step_action === 3">
+        <Finish />
+      </section>
       <Summary
         :delivery="deliveryData"
+        :shipment="shipmentData"
+        :payment="paymentData"
         :currentStep="step_action"
         @step="getStep"
       />
@@ -44,16 +48,20 @@
 import Delivery from "../components/feature/payment/Delivery";
 import Payment from "../components/feature/payment/Payment";
 import Summary from "../components/feature/payment/Summary";
+import Finish from "../components/feature/payment/Finish";
 
 export default {
   components: {
     Delivery,
     Payment,
-    Summary
+    Summary,
+    Finish
   },
   data() {
     return {
       deliveryData: null,
+      shipmentData: null,
+      paymentData: null,
       step_action: 1,
       section_list: ["Cart", "Delivery", "Payment", "Finish"]
     };
@@ -66,6 +74,12 @@ export default {
   methods: {
     getDelivery(data) {
       this.deliveryData = data;
+    },
+    getShipment(data) {
+      this.shipmentData = data;
+    },
+    getPayment(data) {
+      this.paymentData = data;
     },
     getStep(data) {
       this.step_action = data;

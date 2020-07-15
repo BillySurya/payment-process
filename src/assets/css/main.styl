@@ -2,46 +2,22 @@
 @import 'color';
 @import 'pages/*';
 
-border-radius()
-    -webkit-border-radius: arguments
-    -moz-border-radius: arguments
-    border-radius: arguments
-
-box-shadows()
-    box-shadow: arguments
-	  -webkit-box-shadow: arguments 
-	  -moz-box-shadow: arguments 
-
-flex(align, spaces)
-    display: flex
-    flex-direction: align
-    justify-content: spaces
-    align-items: center
-
-grid(templates, composistion)
-    display: grid
-    grid-template-columns: repeat(templates, composistion)
-
-for num in 1..100
-  .p-{num}
-    padding: num px;
-  .p-t-{num}
-    padding-top: num px;
-  .p-b-{num}
-    padding-bottom: num px;
-  .p-l-{num}
-    padding-left: num px;
-  .p-r-{num}
-    padding-right: num px;
-
 // -------------------------------------------------------------------------------//
 //                                   HTML
 // -------------------------------------------------------------------------------//
+
+*
+  font-size: 11pt
+  &:focus
+    outline: none
 
 body
     font: 12px Helvetica, Arial, sans-serif
     background: light-orange
     height: 100%
+
+h1
+  title()
 
 .container
     box-shadows(-3px 5px 22px rgba(#ff8a00, 0.2))
@@ -49,7 +25,6 @@ body
     padding: 25px
     margin: 55px auto
     background: white
-    height: 75vh
     max-width: 70vw
   
 .flex__row--space-between
@@ -115,35 +90,43 @@ body
     height: 90%;
 
 .summary
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between
-
-
+    flex(column, space-between)
+    align-items: stretch
     margin-left: 20px;
     border-left: 1px solid primary-orange;
     padding: 0 20px;
+    height: 600px
 
 .summary-footer__heading
-  display: flex
-  flex-direction: row
-  justify-content: space-between
+    flex(row, space-between)
+    align-items: stretch
 
+.finish
+    flex(column);
+    height :100%
+    justify-content: center
+
+.finish-text
+    flex(column, space-around)
+    align-items: stretch
+    height : 220px
 
 //INPUT
 .field 
   display: flex;
   flex-flow: column-reverse;
 
-input 
+input, textarea
   transition: all 0.2s;
   touch-action: manipulation;
   padding: 10px
   margin: 10px 0
-
-textarea
   resize: none
-  padding: 10px
+
+a
+  cursor: pointer;
+  &:hover 
+    outline: none
 
 // .delivery-form__input
 //   border: 1px solid light-grey;

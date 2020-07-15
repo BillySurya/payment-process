@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <payment />
+    <ItemPayment />
   </div>
 </template>
 
 <script>
-import Payment from "./views/Payment";
+import ItemPayment from "./views/ItemPayment";
 export default {
   components: {
-    Payment
+    ItemPayment
   }
 };
 </script>
