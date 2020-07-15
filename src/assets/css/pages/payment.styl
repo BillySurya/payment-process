@@ -1,5 +1,21 @@
 @import '../color'
 
+.summary
+    flex(column, space-between)
+    align-items: stretch
+    margin-left: 20px;
+    border-left: 1px solid primary-orange;
+    padding: 0 20px;
+    height: 600px
+
+.summary-footer__heading
+    flex(row, space-between)
+    align-items: stretch
+
+    &-price
+        font-size 18pt
+
+
 .shipment__title--orange,
 .payment__title--orange
     color: primary-orange
@@ -28,8 +44,8 @@
     border: 2px solid black
     cursors(pointer, primary-green, light-green)
 
-.payment-methods__list-child-text
-    padding-top: 2px
+    &-text
+        padding-top: 2px
 
 .active-list 
     box-border-color(primary-green, light-green)
@@ -52,3 +68,16 @@
         width: inherit
         display: flex
         justify-content: flex-end
+
+
+.finish
+    flex(column);
+    height :100%
+    justify-content: center
+
+    &__container
+        flex(column, space-around)
+        align-items: stretch
+        height : 220px
+        padding-bottom: 80px
+   

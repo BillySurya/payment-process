@@ -31,7 +31,7 @@
         <Payment @payment="getPayment" @shipment="getShipment" />
       </section>
       <section v-if="step_action === 3">
-        <Finish />
+        <Finish :shipment="shipmentData" />
       </section>
       <Summary
         :delivery="deliveryData"
@@ -70,6 +70,12 @@ export default {
     if (localStorage.step) {
       this.step_action = Number(localStorage.step);
     }
+    if (localStorage.payment) {
+      this.paymentData = JSON.parse(localStorage.payment);
+    }
+    if (localStorage.shipment) {
+      this.shipmentData = JSON.parse(localStorage.shipment);
+    }
   },
   methods: {
     getDelivery(data) {
@@ -87,6 +93,8 @@ export default {
     prevStep() {
       if (this.step_action == 1) return false;
       this.step_action -= 1;
+
+      localStorage.step = this.step_action;
     }
   }
 };

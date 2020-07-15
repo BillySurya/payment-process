@@ -17,7 +17,10 @@ body
     height: 100%
 
 h1
-  title()
+  title(23pt)
+
+h2
+  title(18pt)
 
 .container
     box-shadows(-3px 5px 22px rgba(#ff8a00, 0.2))
@@ -68,6 +71,8 @@ h1
     color: white !important
     background: primary-orange !important
 
+.bold 
+    font-weight: 700 
 //TITLE
 // .title
 
@@ -88,28 +93,6 @@ h1
     gap: 15px;
     grid-template-areas: ". .";
     height: 90%;
-
-.summary
-    flex(column, space-between)
-    align-items: stretch
-    margin-left: 20px;
-    border-left: 1px solid primary-orange;
-    padding: 0 20px;
-    height: 600px
-
-.summary-footer__heading
-    flex(row, space-between)
-    align-items: stretch
-
-.finish
-    flex(column);
-    height :100%
-    justify-content: center
-
-.finish-text
-    flex(column, space-around)
-    align-items: stretch
-    height : 220px
 
 //INPUT
 .field 

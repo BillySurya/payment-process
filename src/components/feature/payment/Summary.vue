@@ -41,8 +41,9 @@
             <b>{{ shipment.price ? shipment.price : 0 }}</b>
           </h4>
         </div>
-        <h2 class="summary-footer__heading c-primary-orange">
-          Total <b>{{ calculateTotal }}</b>
+        <h2 class="summary-footer__heading">
+          Total
+          <b class="summary-footer__heading-price">{{ calculateTotal }}</b>
         </h2>
       </div>
       <button

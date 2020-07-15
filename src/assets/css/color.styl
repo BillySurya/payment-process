@@ -16,9 +16,9 @@ colors = {
   light-grey : #ced4da
 }
 
-title()
+title(fonts)
     color: primary-orange
-    font-size: 23pt
+    font-size: fonts
     margin: 20px 0 15px 0;
 
 border-radius()
@@ -51,7 +51,6 @@ box-border-color(borderColor=none, bgColor=none){
   background: bgColor
   border-color: borderColor
 }
-      
 
 // FOR LOOP
 for num in 1..100
@@ -80,4 +79,3 @@ for name, color in colors
       filter: grayscale(50%)
       cursor: pointer
 
-  
