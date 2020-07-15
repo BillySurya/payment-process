@@ -8,12 +8,23 @@
     padding: 0 20px;
     height: 600px
 
-.summary-footer__heading
-    flex(row, space-between)
-    align-items: stretch
+    &__heading
+        color: primary-green
 
-    &-price
+    &__header__list
+        padding: 5px 0 
+
+    &__footer__list, &__total
+        flex(row, space-between)
+        margin: 1.4rem 0
+        align-items: stretch
+
+    &__price
         font-size 18pt
+        color: primary-orange
+
+    &__button
+        buttons(primary-orange)
 
 
 .shipment__title--orange,

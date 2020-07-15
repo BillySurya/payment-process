@@ -1,53 +1,57 @@
 <template>
   <div class="summary">
-    <div class="summary-header">
-      <h2 class="summary-header__heading c-primary-orange">Summary</h2>
+    <div class="summary__header">
+      <h2 class="summary__title">Summary</h2>
 
-      <span class="summary-header__text">
-        {{ total_purchased_item }} items purchased
-      </span>
+      <div class="summary__header__list">
+        <span class="summary__text">
+          {{ total_purchased_item }} items purchased
+        </span>
+      </div>
       <hr />
 
-      <div v-if="shipment">
-        <h3 class="summary-header__heading">Delivery Estimation</h3>
-        <h3 class="summary-header__heading c-primary-green">
+      <div v-if="shipment" class="summary__header__list">
+        <b class="summary__bold">Delivery Estimation</b>
+        <h3 class="summary__heading c-primary-green">
           today by {{ shipment.name }}
         </h3>
         <hr />
       </div>
 
-      <div v-if="payment">
-        <h3 class="summary-header__heading">Payment Method</h3>
-        <h3 class="summary-header__heading c-primary-green">
+      <div v-if="payment" class="summary__header__list">
+        <b class="summary__bold">Payment Method</b>
+        <h3 class="summary__heading c-primary-green">
           {{ payment.name }}
         </h3>
       </div>
     </div>
-    <div class="summary-footer">
-      <div class="l-flex">
-        <div v-if="cost_of_goods">
-          <h4 class="summary-footer__heading">
-            Cost of good: <b>{{ cost_of_goods }}</b>
-          </h4>
+    <div class="summary__footer">
+      <div class="summary__footer__menu">
+        <div v-if="cost_of_goods" class="summary__footer__list">
+          <span class="summary__footer__heading">
+            Cost of good:
+          </span>
+          <b>{{ cost_of_goods }}</b>
         </div>
-        <div v-if="deliveryData.as_dropshipper">
-          <h4 class="summary-footer__heading">
-            Dropshipping Fee: <b>{{ dropshipping_fee }}</b>
-          </h4>
+        <div v-if="deliveryData.as_dropshipper" class="summary__footer__list">
+          <span class="summary__footer__heading">
+            Dropshipping Fee:
+          </span>
+          <b>{{ dropshipping_fee }}</b>
         </div>
-        <div v-if="shipment">
-          <h4 class="summary-footer__heading">
-            {{ shipment.name }} shipment:
-            <b>{{ shipment.price ? shipment.price : 0 }}</b>
-          </h4>
+        <div v-if="shipment" class="summary__footer__list">
+          <span class="summary__footer__heading">
+            <b>{{ shipment.name }}</b> shipment:
+          </span>
+          <b>{{ shipment.price ? shipment.price : 0 }}</b>
         </div>
-        <h2 class="summary-footer__heading">
+        <h2 class="summary__total">
           Total
-          <b class="summary-footer__heading-price">{{ calculateTotal }}</b>
+          <b class="summary__price">{{ calculateTotal }}</b>
         </h2>
       </div>
       <button
-        class="summary-header__button btn-primary-orange"
+        class="summary__button"
         @click="nextStep"
         :hidden="currentStep === 3"
       >

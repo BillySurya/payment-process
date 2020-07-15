@@ -4,19 +4,29 @@
       <i class="fa fa-arrow-left" aria-hidden="true"></i> Back To
       {{ section_list[step_action - 1] }}
     </a>
-    <div class="payment-process-step">
-      <ul>
-        <li>
+    <div class="payment-process">
+      <ul class="payment-process__menu">
+        <li class="payment-process__list">
           <span :class="`round ${step_action >= 1 ? 'active' : ''}`">1</span>
           Delivery
         </li>
-        <li><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
-        <li>
+        <li class="payment-process__list">
+          <i
+            class="fa fa-chevron-right payment-process__icon"
+            aria-hidden="true"
+          ></i>
+        </li>
+        <li class="payment-process__list">
           <span :class="`round ${step_action >= 2 ? 'active' : ''}`">2</span>
           Payment
         </li>
-        <li><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
-        <li>
+        <li class="payment-process__list">
+          <i
+            class="fa fa-chevron-right payment-process__icon"
+            aria-hidden="true"
+          ></i>
+        </li>
+        <li class="payment-process__list">
           <span :class="`round ${step_action == 3 ? 'active' : ''}`">3</span>
           Finish
         </li>

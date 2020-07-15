@@ -8,6 +8,7 @@
 
 *
   font-size: 11pt
+  color: primary-grey
   &:focus
     outline: none
 
@@ -33,7 +34,7 @@ h2
 .flex__row--space-between
     flex(row, space-between)
 
-.payment-process-step
+.payment-process
     width: 100%
     display: block
     position: absolute
@@ -42,7 +43,8 @@ h2
     font-weight: 700
     color: primary-orange
     top: 15px;
-    ul
+
+    &__menu
       flex(row, space-evenly)
       border-radius(2rem)
       margin: auto
@@ -51,11 +53,15 @@ h2
       background: light-orange
       padding: 0
       list-style :none
-      li, span.round
-        display: flex
-        align-items: center
-        justify-content: center
-        color: primary-orange
+    
+    &__list, span.round
+      display: flex
+      align-items: center
+      justify-content: center
+      color: primary-orange
+
+    &__icon
+      color: primary-orange
 
 .round
     border-radius:50%;
@@ -67,12 +73,12 @@ h2
     margin-right:10px;   
 
 .active, 
-.btn-orange
     color: white !important
     background: primary-orange !important
 
-.bold 
-    font-weight: 700 
+.bold, b
+    font-weight: 700
+    color: black 
 //TITLE
 // .title
 
@@ -110,18 +116,6 @@ a
   cursor: pointer;
   &:hover 
     outline: none
-
-// .delivery-form__input
-//   border: 1px solid light-grey;
-//   font-size: 1.5em;
-//   font-family: inherit;
-//   -webkit-appearance: none;
-//   border-radius: 0;
-//   position: relative;
-//   padding: 0.875rem 1rem 0.5rem 0.875rem;
-//   cursor: text;
-//   &:focus
-//     outline: none
 
 // input:focus 
 //   outline: 0;
