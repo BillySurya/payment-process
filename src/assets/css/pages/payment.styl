@@ -9,7 +9,7 @@
   border: 1px solid #2d293f;
 
 label, input, textarea 
-  transition: all 0.2s;
+//   transition: all 0.2s;
   touch-action: manipulation;
   resize: none
   &:focus
@@ -19,7 +19,7 @@ label
   padding: 10px 10px 0
   font-size: 0.875rem
 
-.delivery__input 
+.delivery__input
   font-size: 1.3em;
   font-weight: 700
   border: 0;
@@ -28,6 +28,7 @@ label
   border-radius: 0;
   padding: 0 5px 10px 10px;
   cursor: text;
+  background: inherit;
 
 .delivery__input:placeholder-shown + label
   cursor: text;
@@ -64,6 +65,84 @@ label
 .delivery__input:-webkit-autofill:focus, 
 .delivery__input:-webkit-autofill:active  
     -webkit-box-shadow: 0 0 0 30px white inset !important;
+
+
+
+// input
+//     font-size: 1.3em;
+//     font-weight: 700
+//     border: 0;
+//     font-family: inherit;
+//     -webkit-appearance: none;
+//     border-radius: 0;
+//     padding: 0 5px 10px 10px;
+//     cursor: text;
+//     background: inherit;
+
+
+// input:placeholder-shown + label
+//   cursor: text;
+//   white-space: nowrap;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   transform-origin: left bottom;
+//   transform: translate(0, 1.2rem) scale(1.5);
+
+// ::-webkit-input-placeholder 
+//   opacity: 0;
+//   transition: inherit;
+
+// input:focus::-webkit-input-placeholder
+//   opacity: 1;
+
+// input:not(:placeholder-shown) + label,
+// input:focus + label
+//   transform: translate(0, 0) scale(1);
+//   cursor: text;
+
+// input::-webkit-outer-spin-button,
+// input::-webkit-inner-spin-button 
+//   -webkit-appearance: none;
+//   margin: 0;
+
+
+// input[type=number] 
+//   -moz-appearance: textfield;
+
+
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover, 
+// input:-webkit-autofill:focus, 
+// input:-webkit-autofill:active  
+//     -webkit-box-shadow: 0 0 0 30px white inset !important;
+
+
+
+.valid-form
+    box-border-color(primary-green, light-green)
+    font-weight: 600
+    &:after 
+        // content: '✔'
+        color: primary-green
+        margin-right: 5px
+        position: absolute
+        width: inherit
+        display: flex
+        justify-content: flex-end
+
+.error-form
+    box-border-color(primary-orange, light-orange)
+    &:after 
+        // content: '✕'
+        color: primary-orange
+        margin-right: 5px
+        position: absolute
+        width: inherit
+        display: flex
+        justify-content: flex-end
+
+.disabled-form
+    box-border-color(primary-grey, light-grey)
 
 // ----------------- Summary -------------------------------
 
@@ -136,7 +215,7 @@ label
         display: flex
         justify-content: flex-end
 
-.error 
+.error
     box-border-color(primary-orange, light-orange)
     &:after 
         content: '✕'
@@ -158,4 +237,3 @@ label
         align-items: stretch
         height : 220px
         padding-bottom: 80px
-   

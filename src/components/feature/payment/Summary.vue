@@ -136,9 +136,13 @@ export default {
   },
   methods: {
     nextStep() {
-      this.step += 1;
-      this.$emit("step", this.step);
-      localStorage.step = this.step;
+      if (this.delivery.data_valid) {
+        this.step += 1;
+        this.$emit("step", this.step);
+        localStorage.step = this.step;
+      } else {
+        alert("Please Fill the Required Fields");
+      }
     }
   }
 };
