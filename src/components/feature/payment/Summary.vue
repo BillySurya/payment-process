@@ -31,19 +31,19 @@
           <span class="summary__footer__heading">
             Cost of good:
           </span>
-          <b>{{ cost_of_goods }}</b>
+          <b>{{ cost_of_goods | currencyFormat }}</b>
         </div>
         <div v-if="deliveryData.as_dropshipper" class="summary__footer__list">
           <span class="summary__footer__heading">
             Dropshipping Fee:
           </span>
-          <b>{{ dropshipping_fee }}</b>
+          <b>{{ dropshipping_fee | currencyFormat }}</b>
         </div>
         <div v-if="shipment" class="summary__footer__list">
           <span class="summary__footer__heading">
             <b>{{ shipment.name }}</b> shipment:
           </span>
-          <b>{{ shipment.price ? shipment.price : 0 }}</b>
+          <b>{{ shipment.price | currencyFormat }}</b>
         </div>
         <h2 class="summary__total">
           Total
@@ -62,7 +62,10 @@
 </template>
 
 <script>
+import ReusableFunction from "@/mixins/ReusableFunction";
+
 export default {
+  mixins: [ReusableFunction],
   props: {
     delivery: {
       type: Object,
@@ -115,7 +118,7 @@ export default {
 
       if (this.shipment) additional += this.shipment.price || 0;
 
-      return this.cost_of_goods + additional;
+      return new Intl.NumberFormat().format(this.cost_of_goods + additional);
     },
     changeText() {
       let selectedPayment = "E-Wallet";

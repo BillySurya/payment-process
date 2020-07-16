@@ -41,25 +41,25 @@
     justify-content: flex-start
     text-align: left
     cursors(pointer)   
-
-.shipment-methods__list-child,
-.payment-methods__list-child
-    display: flex
-    flex-direction: column 
-    justify-content: center
-    border-radius: 5px
-    margin: 5px
-    padding: 15px
-    width: 140px;
-    height 25px
-    border: 2px solid black
-    cursors(pointer, primary-green, light-green)
+    
+    &-child
+        display: flex
+        flex-direction: column 
+        justify-content: center
+        border-radius: 5px
+        margin: 5px
+        padding: 15px
+        width: 140px;
+        height 25px
+        border: 2px solid black
+        cursors(pointer, primary-green, light-green)
 
     &-text
         padding-top: 2px
 
 .active-list 
     box-border-color(primary-green, light-green)
+    font-weight: 600
     &:after 
         content: '✔'
         color: primary-green

@@ -17,7 +17,7 @@
               @click="setActive(value, 'shipment')"
             >
               <span>{{ value.name }}</span>
-              <span v-if="value.price">{{ value.price }}</span>
+              <span v-if="value.price">{{ value.price | currencyFormat }}</span>
             </li>
           </template>
         </ul>
@@ -43,7 +43,7 @@
                 {{ value.name }}
               </span>
               <span class="payment-methods__list-child-text" v-if="value.price">
-                {{ value.price }}
+                {{ value.price | currencyFormat }} left
               </span>
             </li>
           </template>
@@ -54,7 +54,10 @@
 </template>
 
 <script>
+import ReusableFunction from "@/mixins/ReusableFunction";
+
 export default {
+  mixins: [ReusableFunction],
   data() {
     return {
       payment_selected: {},
@@ -63,7 +66,7 @@ export default {
         {
           order: 1,
           name: "e-Wallet",
-          price: "150000 left",
+          price: 150000,
           is_active: true
         },
         {
