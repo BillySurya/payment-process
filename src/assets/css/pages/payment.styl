@@ -1,5 +1,72 @@
 @import '../color'
 
+
+// ---------------- Delivery -----------------------------
+.field 
+  display: flex;
+  flex-flow: column-reverse;
+  margin-bottom: 1em;
+  border: 1px solid #2d293f;
+
+label, input, textarea 
+  transition: all 0.2s;
+  touch-action: manipulation;
+  resize: none
+  &:focus
+    outline: 0
+
+label 
+  padding: 10px 10px 0
+  font-size: 0.875rem
+
+.delivery__input 
+  font-size: 1.3em;
+  font-weight: 700
+  border: 0;
+  font-family: inherit;
+  -webkit-appearance: none;
+  border-radius: 0;
+  padding: 0 5px 10px 10px;
+  cursor: text;
+
+.delivery__input:placeholder-shown + label
+  cursor: text;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transform-origin: left bottom;
+  transform: translate(0, 1.2rem) scale(1.5);
+
+::-webkit-input-placeholder 
+  opacity: 0;
+  transition: inherit;
+
+.delivery__input:focus::-webkit-input-placeholder
+  opacity: 1;
+
+.delivery__input:not(:placeholder-shown) + label,
+.delivery__input:focus + label
+  transform: translate(0, 0) scale(1);
+  cursor: text;
+
+.delivery__input::-webkit-outer-spin-button,
+.delivery__input::-webkit-inner-spin-button 
+  -webkit-appearance: none;
+  margin: 0;
+
+
+.delivery__input[type=number] 
+  -moz-appearance: textfield;
+
+
+.delivery__input:-webkit-autofill,
+.delivery__input:-webkit-autofill:hover, 
+.delivery__input:-webkit-autofill:focus, 
+.delivery__input:-webkit-autofill:active  
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+
+// ----------------- Summary -------------------------------
+
 .summary
     flex(column, space-between)
     align-items: stretch

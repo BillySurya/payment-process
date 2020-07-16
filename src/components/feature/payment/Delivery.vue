@@ -25,7 +25,7 @@
             v-model="delivery.email"
             placeholder="Jane@gmail.com"
           />
-          <label for="email">Email</label>
+          <label class="delivery__label" for="email">Email</label>
         </div>
         <div class="field">
           <input
@@ -37,7 +37,9 @@
             :disabled="delivery.as_dropshipper || false"
             placeholder="Jane Smith"
           />
-          <label for="dripshipper_name">Dropshipper name</label>
+          <label class="delivery__label" for="dripshipper_name"
+            >Dropshipper name</label
+          >
         </div>
         <div class="field">
           <input
@@ -48,7 +50,7 @@
             v-model="delivery.phone_number"
             placeholder="Ex, +62818981829381"
           />
-          <label for="phone_number">Phone Number</label>
+          <label class="delivery__label" for="phone_number">Phone Number</label>
         </div>
         <div class="field">
           <input
@@ -60,7 +62,9 @@
             :disabled="delivery.as_dropshipper"
             placeholder="Ex, +62818981829381"
           />
-          <label for="dropshipper_phone_number">Dropshipper Phone Number</label>
+          <label class="delivery__label" for="dropshipper_phone_number"
+            >Dropshipper Phone Number</label
+          >
         </div>
         <div class="field">
           <textarea
@@ -71,7 +75,7 @@
             rows="5"
             autocomplete="none"
           />
-          <label for="address">Delivery Address</label>
+          <label class="delivery__label" for="address">Delivery Address</label>
         </div>
       </div>
     </div>
@@ -99,7 +103,11 @@ export default {
     }
     this.$emit("delivery", this.delivery);
   },
-  methods: {},
+  methods: {
+    print() {
+      console.log("adasdasd");
+    }
+  },
   watch: {
     delivery: {
       handler(data) {
