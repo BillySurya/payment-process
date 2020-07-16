@@ -136,13 +136,26 @@ export default {
   },
   methods: {
     nextStep() {
-      if (this.delivery.data_valid) {
-        this.step += 1;
-        this.$emit("step", this.step);
-        localStorage.step = this.step;
-      } else {
-        alert("Please Fill the Required Fields");
+      switch (this.step) {
+        case 1:
+          if (this.delivery.data_valid) {
+            this.actionNext();
+          } else {
+            alert("Please Fill the Required Fields");
+          }
+          break;
+        case 2:
+          if (this.payment && this.shipment) {
+            this.actionNext();
+          } else {
+            alert("Please Select Shipment and Payment");
+          }
       }
+    },
+    actionNext() {
+      this.step += 1;
+      this.$emit("step", this.step);
+      localStorage.step = this.step;
     }
   }
 };

@@ -33,6 +33,7 @@ label
 .delivery__input:placeholder-shown + label
   cursor: text;
   white-space: nowrap;
+  width: 60%
   overflow: hidden;
   text-overflow: ellipsis;
   transform-origin: left bottom;
@@ -119,8 +120,10 @@ label
 
 
 .valid-form
-    box-border-color(primary-green, light-green)
-    font-weight: 600
+    box-border-color(primary-green, none)
+    font-weight: 700
+    .delivery__label
+        color: primary-green
     &:after 
         // content: '✔'
         color: primary-green
@@ -131,7 +134,10 @@ label
         justify-content: flex-end
 
 .error-form
-    box-border-color(primary-orange, light-orange)
+    box-border-color(primary-orange, none)
+    font-weight: 700
+    .delivery__label
+        color: primary-orange
     &:after 
         // content: '✕'
         color: primary-orange

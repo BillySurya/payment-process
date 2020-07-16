@@ -211,12 +211,14 @@ export default {
           minLength: minLength(6),
           maxLength: maxLength(20)
         },
-        dropshipper_phone_number: {
-          required: requiredIf(() => !this.delivery.as_dropshipper),
-          regEx,
-          minLength: minLength(6),
-          maxLength: maxLength(20)
-        },
+        dropshipper_phone_number: !this.delivery.as_dropshipper
+          ? {
+              required,
+              regEx,
+              minLength: minLength(6),
+              maxLength: maxLength(20)
+            }
+          : {},
         delivery_address: { required }
       }
     };
