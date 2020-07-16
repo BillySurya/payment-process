@@ -18,9 +18,10 @@
       <div class="grid-2">
         <div class="field">
           <input
-            class="delivery-form__input"
+            class="delivery__input"
             type="email"
             name="email"
+            id="email"
             v-model="delivery.email"
             placeholder="Jane@gmail.com"
           />
@@ -28,45 +29,49 @@
         </div>
         <div class="field">
           <input
-            class="delivery-form__input"
+            class="delivery__input"
             type="text"
             name="dripshipper_name"
+            id="dripshipper_name"
             v-model="delivery.dripshipper_name"
+            :disabled="delivery.as_dropshipper || false"
             placeholder="Jane Smith"
-            :disabled="delivery.as_dropshipper"
           />
           <label for="dripshipper_name">Dropshipper name</label>
         </div>
         <div class="field">
           <input
-            class="delivery-form__input"
+            class="delivery__input"
             type="number"
             name="phone_number"
+            id="phone_number"
             v-model="delivery.phone_number"
-            placeholder="123123123"
+            placeholder="Ex, +62818981829381"
           />
-          <label for="phone_num">Phone Number</label>
+          <label for="phone_number">Phone Number</label>
         </div>
         <div class="field">
           <input
-            class="delivery-form__input"
+            class="delivery__input"
             type="number"
             name="dropshipper_phone_number"
+            id="dropshipper_phone_number"
             v-model="delivery.dropshipper_phone_number"
-            placeholder="Ex, +62818981829381"
             :disabled="delivery.as_dropshipper"
+            placeholder="Ex, +62818981829381"
           />
           <label for="dropshipper_phone_number">Dropshipper Phone Number</label>
         </div>
         <div class="field">
           <textarea
-            class="delivery-form__input"
-            name="delivery_address"
+            class="delivery__input"
+            name="address"
             v-model="delivery.delivery_address"
             maxlength="120"
             rows="5"
+            autocomplete="none"
           />
-          <label for="delivery_address">Delivery Address</label>
+          <label for="address">Delivery Address</label>
         </div>
       </div>
     </div>

@@ -79,13 +79,6 @@ h2
 .bold, b
     font-weight: 700
     color: black 
-//TITLE
-// .title
-
-// .title__text
-
-// .title__checkbox--center
-
 
 //Grid
 .grid-2
@@ -100,49 +93,69 @@ h2
     grid-template-areas: ". .";
     height: 90%;
 
-//INPUT
-.field 
-  display: flex;
-  flex-flow: column-reverse;
-
-input, textarea
-  transition: all 0.2s;
-  touch-action: manipulation;
-  padding: 10px
-  margin: 10px 0
-  resize: none
-
 a
   cursor: pointer;
   &:hover 
     outline: none
 
-// input:focus 
-//   outline: 0;
-//   border-bottom: 1px solid #666;
+.field 
+  display: flex;
+  flex-flow: column-reverse;
+  margin-bottom: 1em;
+  border: 1px solid #2d293f;
 
 
-// input:placeholder-shown + label 
-//   cursor: text;
-//   // max-width: 66.66%;
-//   white-space: nowrap;
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-//   transform-origin: left bottom;
-//   transform: translate(0.5rem, 2rem) scale(1.5);
+label, input, textarea 
+  transition: all 0.2s;
+  touch-action: manipulation;
+  resize: none
+  &:focus
+    outline: 0
 
-// ::-webkit-input-placeholder 
-//   opacity: 0;
-//   transition: inherit;
 
-// input:focus::-webkit-input-placeholder 
-//   opacity: 1;
+.delivery__input 
+  font-size: 1.5em;
+  border: 0;
+  font-family: inherit;
+  -webkit-appearance: none;
+  border-radius: 0;
+  padding: 0 5px 10px 10px;
+  cursor: text;
+
+label 
+  padding: 10px 10px 0
+  font-size: 0.875rem
+
+// input:placeholder-shown + label,
+.delivery__input:placeholder-shown + label,
+  cursor: text;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transform-origin: left bottom;
+  transform: translate(0, 1.2rem) scale(1.5);
+
+::-webkit-input-placeholder 
+  opacity: 0;
+  transition: inherit;
+
+// input:focus::-webkit-input-placeholder,
+.delivery__input:focus::-webkit-input-placeholder,
+  opacity: 1;
 
 // input:not(:placeholder-shown) + label,
-// input:focus + label 
-//   transform: translate(0.875rem , 1rem) scale(1);
-//   cursor: pointer;
-//   color: green
+// input:focus + label,
+.delivery__input:not(:placeholder-shown) + label,
+.delivery__input:focus + label,
+  transform: translate(0, 0) scale(1);
+  cursor: pointer;
 
-// input:not(:placeholder-shown)
-//   border: 1px solid green
+.delivery__input::-webkit-outer-spin-button,
+.delivery__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.delivery__input[type=number] {
+  -moz-appearance: textfield;
+}
