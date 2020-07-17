@@ -50,6 +50,10 @@ npm run build
           └── ItemPayment.vue
     
 ```
+
+```
+
+```
 Payment Process Main Page is on ItemPayment.vue. All different step form are invoked to this file throught component that located on **/components/feature/payment**.
 All stored data each component sent to ItemPayment and pass them to Summary component to display value based on data selected or data that user entry.
 Reusable function is file that store global function that can used for all files.
