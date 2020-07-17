@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <a @click="prevStep">
+    <a @click="prevStep" v-if="step_action !== 3">
       <i class="fa fa-arrow-left" aria-hidden="true"></i> Back To
       {{ section_list[step_action - 1] }}
     </a>
