@@ -41,7 +41,7 @@
         <Payment @payment="getPayment" @shipment="getShipment" />
       </section>
       <section v-if="step_action === 3">
-        <Finish :shipment="shipmentData" />
+        <Finish :shipment="shipmentData" @step="getStep" />
       </section>
       <Summary
         :delivery="deliveryData"

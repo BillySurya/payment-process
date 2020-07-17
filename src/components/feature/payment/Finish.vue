@@ -9,16 +9,17 @@
 
       <div class="finish__item p-b-35">
         <span class="finish__description bold">
-          Order ID : {{ order_id }}
+          Order ID : {{ randomString }}
         </span>
         <br />
         <br />
         <span class="finish__description">
-          Your Order will be delivered {{ duration }} with {{ shipment.name }}
+          Your Order will be delivered {{ shipment.duration }} with
+          {{ shipment.name }}
         </span>
       </div>
 
-      <a class="finish__item">
+      <a class="finish__item" @click="resetPage">
         <i class="fa fa-arrow-left" aria-hidden="true"></i> Back To Homepage
       </a>
     </div>
@@ -33,11 +34,26 @@ export default {
       default: () => {}
     }
   },
+  computed: {
+    randomString() {
+      var randoms = "";
+      let chars = "23456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKMNPQRSTUVWXYZ";
+      for (var i = 5; i > 0; --i)
+        randoms += chars[Math.floor(Math.random() * chars.length)];
+      return randoms;
+    }
+  },
   data() {
     return {
-      order_id: "XXX1253612",
-      duration: "today"
+      step: null
     };
+  },
+  methods: {
+    resetPage() {
+      localStorage.clear();
+      this.step = 1;
+      this.$emit("step", this.step);
+    }
   }
 };
 </script>

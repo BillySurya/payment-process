@@ -4,13 +4,17 @@
       <h1 class="delivery-body-title__text">
         Delivery Details
       </h1>
-      <div>
+      <div class="delivery__checkbox">
         <input
+          class="checkbox__input"
           type="checkbox"
-          class="delivery-body-title__checkbox--center"
+          name="checkbox"
+          id="checkbox"
           v-model="delivery.as_dropshipper"
         />
-        Send As Dropshipper
+        <label class="checkbox__label" for="checkbox"
+          >Send As Dropshipper</label
+        >
       </div>
     </div>
 
@@ -111,6 +115,9 @@
             field: true
           }"
         >
+          <h4 class="delivery__counter">
+            characters remain: {{ char_remain }}
+          </h4>
           <textarea
             class="delivery__input"
             name="address"
@@ -150,6 +157,14 @@ export default {
         delivery_address: null
       }
     };
+  },
+  computed: {
+    char_remain() {
+      if (this.delivery.delivery_address) {
+        return 120 - this.delivery.delivery_address.length;
+      }
+      return 120;
+    }
   },
   mounted() {
     if (localStorage.delivery) {

@@ -1,4 +1,4 @@
-@import '../color'
+@import '../mixins'
 
 
 // ---------------- Delivery -----------------------------
@@ -60,63 +60,57 @@ label
 .delivery__input[type=number] 
   -moz-appearance: textfield;
 
-
 .delivery__input:-webkit-autofill,
 .delivery__input:-webkit-autofill:hover, 
 .delivery__input:-webkit-autofill:focus, 
 .delivery__input:-webkit-autofill:active  
     -webkit-box-shadow: 0 0 0 30px white inset !important;
 
+.delivery__counter
+  margin: 10px !important
+  color: primary-grey
 
+.delivery__checkbox 
+  display: block;
+  margin-bottom: 15px;
+  box-sizing()
 
-// input
-//     font-size: 1.3em;
-//     font-weight: 700
-//     border: 0;
-//     font-family: inherit;
-//     -webkit-appearance: none;
-//     border-radius: 0;
-//     padding: 0 5px 10px 10px;
-//     cursor: text;
-//     background: inherit;
+  .checkbox__input 
+    padding: 0;
+    height: initial;
+    width: initial;
+    margin-bottom: 0;
+    display: none;
+    cursor: pointer;
+    &:checked + .checkbox__label:after 
+      content: '';
+      display: block;
+      position: absolute;
+      top: -2px;
+      left: 8px;
+      width: 6px;
+      height: 14px;
+      border: solid primary-green;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
 
-
-// input:placeholder-shown + label
-//   cursor: text;
-//   white-space: nowrap;
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-//   transform-origin: left bottom;
-//   transform: translate(0, 1.2rem) scale(1.5);
-
-// ::-webkit-input-placeholder 
-//   opacity: 0;
-//   transition: inherit;
-
-// input:focus::-webkit-input-placeholder
-//   opacity: 1;
-
-// input:not(:placeholder-shown) + label,
-// input:focus + label
-//   transform: translate(0, 0) scale(1);
-//   cursor: text;
-
-// input::-webkit-outer-spin-button,
-// input::-webkit-inner-spin-button 
-//   -webkit-appearance: none;
-//   margin: 0;
-
-
-// input[type=number] 
-//   -moz-appearance: textfield;
-
-
-// input:-webkit-autofill,
-// input:-webkit-autofill:hover, 
-// input:-webkit-autofill:focus, 
-// input:-webkit-autofill:active  
-//     -webkit-box-shadow: 0 0 0 30px white inset !important;
-
+  .checkbox__label 
+    padding: 0
+    font-weight: 600
+    position: relative;
+    cursor: pointer;
+    &:before 
+      content:'';
+      -webkit-appearance: none;
+      background-color: transparent;
+      border: 2px solid primary-green;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+      padding: 10px;
+      display: inline-block;
+      position: relative;
+      vertical-align: middle;
+      cursor: pointer;
+      margin-right: 5px;
 
 
 .valid-form

@@ -13,7 +13,7 @@
       <div v-if="shipment" class="summary__header__list">
         <b class="summary__bold">Delivery Estimation</b>
         <h3 class="summary__heading c-primary-green">
-          today by {{ shipment.name }}
+          {{ shipment.duration }} by {{ shipment.name }}
         </h3>
         <hr />
       </div>

@@ -84,18 +84,21 @@ export default {
         {
           order: 1,
           name: "GO-SEND",
+          duration: "today",
           price: 15000,
           is_active: true
         },
         {
           order: 2,
           name: "JNE",
+          duration: "2 days",
           price: 8000,
           is_active: false
         },
         {
           order: 3,
           name: "Personar Courier",
+          duration: "1 day",
           price: 29000,
           is_active: false
         }
